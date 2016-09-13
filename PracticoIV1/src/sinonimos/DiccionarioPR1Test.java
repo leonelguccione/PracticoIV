@@ -36,12 +36,12 @@ import org.junit.runner.JUnitCore;
 
 import java.util.Iterator;
 
-public class diccionarioPR1Test
+public class DiccionarioPR1Test
 {
 
-    diccionario dicctest = new diccionario();
+    Diccionario dicctest = new Diccionario();
 
-    public diccionarioPR1Test()
+    public DiccionarioPR1Test()
     {
     }
 
@@ -55,11 +55,11 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "vivienda"));
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "hogar"));
-            dicctest.getListaSinonimos().add(new sinonimo("perro", "can"));
-            dicctest.getListaSinonimos().add(new sinonimo("calle", "rua"));
-            sinonimo sin = new sinonimo(null, null);
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "vivienda"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "hogar"));
+            dicctest.getListaSinonimos().add(new Sinonimo("perro", "can"));
+            dicctest.getListaSinonimos().add(new Sinonimo("calle", "rua"));
+            Sinonimo sin = new Sinonimo(null, null);
             dicctest.agregar_sinonimo(sin);
             fail("agregar sinonimo nulo no dispara excepcion.");
         }
@@ -82,11 +82,11 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "vivienda"));
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "hogar"));
-            dicctest.getListaSinonimos().add(new sinonimo("perro", "can"));
-            dicctest.getListaSinonimos().add(new sinonimo("calle", "rua"));
-            sinonimo sin = new sinonimo("Casa", "hogar");
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "vivienda"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "hogar"));
+            dicctest.getListaSinonimos().add(new Sinonimo("perro", "can"));
+            dicctest.getListaSinonimos().add(new Sinonimo("calle", "rua"));
+            Sinonimo sin = new Sinonimo("Casa", "hogar");
             dicctest.agregar_sinonimo(sin);
             fail("agregar sinonimo repetido no dispara excepcion.");
         }
@@ -109,11 +109,11 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "vivienda"));
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "hogar"));
-            dicctest.getListaSinonimos().add(new sinonimo("perro", "can"));
-            dicctest.getListaSinonimos().add(new sinonimo("calle", "rua"));
-            sinonimo sin = new sinonimo("Casa", "Rancho");
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "vivienda"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "hogar"));
+            dicctest.getListaSinonimos().add(new Sinonimo("perro", "can"));
+            dicctest.getListaSinonimos().add(new Sinonimo("calle", "rua"));
+            Sinonimo sin = new Sinonimo("Casa", "Rancho");
             dicctest.agregar_sinonimo(sin);
             assertTrue("Error al agregar un Sinonimo", dicctest.getListaSinonimos().size() == 5);
         }
@@ -133,7 +133,7 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            sinonimo sin = new sinonimo("Casa", "hogar");
+            Sinonimo sin = new Sinonimo("Casa", "hogar");
             dicctest.agregar_sinonimo(sin);
             assertTrue("Error al agregar un Sinonimo", dicctest.getListaSinonimos().size() == 1);
         }
@@ -154,7 +154,7 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            sinonimo sin = new sinonimo(null, null);
+            Sinonimo sin = new Sinonimo(null, null);
             dicctest.agregar_sinonimo(sin);
             fail("agregar sinonimo invalido no dispara excepcion.");
         }
@@ -177,11 +177,11 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "vivienda"));
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "hogar"));
-            dicctest.getListaSinonimos().add(new sinonimo("perro", "can"));
-            dicctest.getListaSinonimos().add(new sinonimo("calle", "rua"));
-            sinonimo sin = new sinonimo(null, null);
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "vivienda"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "hogar"));
+            dicctest.getListaSinonimos().add(new Sinonimo("perro", "can"));
+            dicctest.getListaSinonimos().add(new Sinonimo("calle", "rua"));
+            Sinonimo sin = new Sinonimo(null, null);
             dicctest.eliminar_sinonimo(sin);
             fail("eliminar sinonimo invalido no dispara excepcion.");
         }
@@ -204,11 +204,11 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "vivienda"));
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "hogar"));
-            dicctest.getListaSinonimos().add(new sinonimo("perro", "can"));
-            dicctest.getListaSinonimos().add(new sinonimo("calle", "rua"));
-            sinonimo sin = new sinonimo("Casa", "rancho");
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "vivienda"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "hogar"));
+            dicctest.getListaSinonimos().add(new Sinonimo("perro", "can"));
+            dicctest.getListaSinonimos().add(new Sinonimo("calle", "rua"));
+            Sinonimo sin = new Sinonimo("Casa", "rancho");
             dicctest.eliminar_sinonimo(sin);
             fail("Eliminar sinonimo inexistente no dispara excepcion.");
         }
@@ -230,11 +230,11 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "vivienda"));
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "hogar"));
-            dicctest.getListaSinonimos().add(new sinonimo("perro", "can"));
-            dicctest.getListaSinonimos().add(new sinonimo("calle", "rua"));
-            sinonimo sin = new sinonimo("Casa", "hogar");
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "vivienda"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "hogar"));
+            dicctest.getListaSinonimos().add(new Sinonimo("perro", "can"));
+            dicctest.getListaSinonimos().add(new Sinonimo("calle", "rua"));
+            Sinonimo sin = new Sinonimo("Casa", "hogar");
             dicctest.eliminar_sinonimo(sin);
             assertFalse("Error al eliminar un Sinonimo", dicctest.getListaSinonimos().contains(sin));
         }
@@ -255,7 +255,7 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            sinonimo sin = new sinonimo("Casa", "hogar");
+            Sinonimo sin = new Sinonimo("Casa", "hogar");
             dicctest.eliminar_sinonimo(sin);
             fail("eliminar sinonimo de lista vacia no dispara excepcion.");
         }
@@ -301,10 +301,10 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "vivienda"));
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "hogar"));
-            dicctest.getListaSinonimos().add(new sinonimo("perro", "can"));
-            dicctest.getListaSinonimos().add(new sinonimo("calle", "rua"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "vivienda"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "hogar"));
+            dicctest.getListaSinonimos().add(new Sinonimo("perro", "can"));
+            dicctest.getListaSinonimos().add(new Sinonimo("calle", "rua"));
             Iterator it = dicctest.busqueda_sinonimo("rancho").iterator();
             fail("Busqueda sin resultados no dispara excepcion.");
         }
@@ -326,15 +326,15 @@ public class diccionarioPR1Test
         try
         {
             dicctest.getListaSinonimos().clear();
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "vivienda"));
-            dicctest.getListaSinonimos().add(new sinonimo("Casa", "hogar"));
-            dicctest.getListaSinonimos().add(new sinonimo("perro", "can"));
-            dicctest.getListaSinonimos().add(new sinonimo("calle", "rua"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "vivienda"));
+            dicctest.getListaSinonimos().add(new Sinonimo("Casa", "hogar"));
+            dicctest.getListaSinonimos().add(new Sinonimo("perro", "can"));
+            dicctest.getListaSinonimos().add(new Sinonimo("calle", "rua"));
             Iterator it = dicctest.busqueda_sinonimo("Casa").iterator();
             boolean prueba = true;
             while (it.hasNext())
             {
-                if (!(((sinonimo) it.next()).getPalabra_clave().equals("Casa")))
+                if (!(((Sinonimo) it.next()).getPalabra_clave().equals("Casa")))
                 {
                     prueba = false;
                 }

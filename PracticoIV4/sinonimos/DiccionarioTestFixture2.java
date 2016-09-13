@@ -1,9 +1,9 @@
 package sinonimos;
 
-public class diccionarioTestFixture2 {
-    diccionario dicctest=new diccionario();
+public class DiccionarioTestFixture2 {
+    Diccionario dicctest=new Diccionario();
     
-    public diccionarioTestFixture2() {
+    public DiccionarioTestFixture2() {
     }
 
     public void setUp() {

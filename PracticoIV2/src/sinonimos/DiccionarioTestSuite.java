@@ -23,6 +23,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ diccionarioPR2Test2.class, diccionarioPR2Test1.class })
+@Suite.SuiteClasses({ DiccionarioPR2Test2.class, DiccionarioPR2Test1.class })
 public class DiccionarioTestSuite {
 }

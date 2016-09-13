@@ -30,11 +30,11 @@ import org.junit.Test;
 import org.junit.runner.JUnitCore;
 import java.util.Iterator;
 
-public class diccionarioPR4Test1 {
+public class DiccionarioPR2Test1 {
    
-    diccionarioTestFixture1 fixture1 = new diccionarioTestFixture1();
+    Diccionario dicctest=new Diccionario();
         
-    public diccionarioPR4Test1() {
+    public DiccionarioPR2Test1() {
     }
 
     
@@ -45,13 +45,16 @@ public class diccionarioPR4Test1 {
     @Before
     public void setUp()
     {
-        fixture1.setUp();
+        dicctest.getListaSinonimos().add(new Sinonimo("Casa","vivienda"));
+        dicctest.getListaSinonimos().add(new Sinonimo("Casa","hogar"));
+        dicctest.getListaSinonimos().add(new Sinonimo("perro","can"));
+        dicctest.getListaSinonimos().add(new Sinonimo("calle","rua"));
     }
 
     @After
     public void tearDown() 
     {
-        fixture1.tearDown();
+        dicctest.getListaSinonimos().clear();
     }
   
   /**
@@ -66,15 +69,14 @@ public class diccionarioPR4Test1 {
     public void testAgregar_sinonimo1() {
        try
           {
-            sinonimo sin = new sinonimo(null,null);
-            fixture1.dicctest.agregar_sinonimo(sin);
+            Sinonimo sin = new Sinonimo(null,null);
+            dicctest.agregar_sinonimo(sin);
             fail("agregar sinonimo nulo no dispara excepcion.");
           }
-          catch(Exception e )
+          catch( final Exception e )
           {
 /*          Nota : La excepcion debe ser la correspondiente al mensaje */
             final String msg = "Sinonimo Invalido";
-            System.out.println(e.getMessage());
             assertEquals("No genera la excepcion de Sinonimo Invalido", msg, e.getMessage());
           }
         
@@ -88,8 +90,8 @@ public class diccionarioPR4Test1 {
     public void testAgregar_sinonimo2() {
         try
            {
-            sinonimo sin = new sinonimo("Casa","hogar");
-            fixture1.dicctest.agregar_sinonimo(sin);
+            Sinonimo sin = new Sinonimo("Casa","hogar");
+            dicctest.agregar_sinonimo(sin);
             fail("agregar sinonimo repetido no dispara excepcion.");
             }
         catch( final Exception e )
@@ -109,9 +111,9 @@ public class diccionarioPR4Test1 {
     public void testAgregar_sinonimo3() {
         try
            {  
-            sinonimo sin = new sinonimo("Casa","Rancho");
-            fixture1.dicctest.agregar_sinonimo(sin);
-            assertTrue("Error al agregar un Sinonimo",fixture1.dicctest.getListaSinonimos().size()==5);
+            Sinonimo sin = new Sinonimo("Casa","Rancho");
+            dicctest.agregar_sinonimo(sin);
+            assertTrue("Error al agregar un Sinonimo",dicctest.getListaSinonimos().size()==5);
             }
         catch( final Exception e )
             {
@@ -127,8 +129,8 @@ public class diccionarioPR4Test1 {
     public void testEliminar_sinonimo1() {
         try
            { 
-            sinonimo sin = new sinonimo(null,null);
-            fixture1.dicctest.eliminar_sinonimo(sin);
+            Sinonimo sin = new Sinonimo(null,null);
+            dicctest.eliminar_sinonimo(sin);
             fail("eliminar sinonimo invalido no dispara excepcion.");
         }
         catch( final Exception e )
@@ -148,8 +150,8 @@ public class diccionarioPR4Test1 {
      public void testEliminar_sinonimo2() {
          try
             {  
-             sinonimo sin = new sinonimo("Casa","rancho");
-             fixture1.dicctest.eliminar_sinonimo(sin);
+             Sinonimo sin = new Sinonimo("Casa","rancho");
+             dicctest.eliminar_sinonimo(sin);
              fail("Eliminar sinonimo inexistente no dispara excepcion.");
          }
          catch( final Exception e )
@@ -168,9 +170,9 @@ public class diccionarioPR4Test1 {
      public void testEliminar_sinonimo3() {
          try
             { 
-             sinonimo sin = new sinonimo("Casa","hogar");
-             fixture1.dicctest.eliminar_sinonimo(sin);
-             assertFalse("Error al eliminar un Sinonimo", fixture1.dicctest.getListaSinonimos().contains(sin));
+             Sinonimo sin = new Sinonimo("Casa","hogar");
+             dicctest.eliminar_sinonimo(sin);
+             assertFalse("Error al eliminar un Sinonimo", dicctest.getListaSinonimos().contains(sin));
            }
          catch( final Exception e )
            {
@@ -188,14 +190,14 @@ public class diccionarioPR4Test1 {
      {   
          try
             {
-             Iterator it = fixture1.dicctest.busqueda_sinonimo("rancho").iterator();
-             fail("Busqueda sin resultados no dispara excepcion.");
+            Iterator it = dicctest.busqueda_sinonimo("rancho").iterator();
+            fail("Busqueda sin resultados no dispara excepcion.");
             }
          catch( final Exception e )
             {
 /*          Nota : La excepcion debe ser la correspondiente al mensaje */
             final String msg = "Busqueda Infructuosa";
-            assertEquals("No genera excepcion de Busqueda Infructuosa",msg, e.getMessage()); 
+            assertEquals("No genera excepcion de Busqueda Infructuosa", msg, e.getMessage()); 
             }
      }
      
@@ -204,15 +206,15 @@ public class diccionarioPR4Test1 {
       */
      
      @Test
-     public void testBusqueda_sinonimo3() 
+     public void testBusqueda_sinonimo() 
      {       
          try
             {
-             Iterator it = fixture1.dicctest.busqueda_sinonimo("Casa").iterator();
+             Iterator it = dicctest.busqueda_sinonimo("casa").iterator();
              boolean prueba=true;
              while (it.hasNext())
                 {
-                    if (!(((sinonimo) it.next()).getPalabra_clave().equals("Casa")))
+                    if (!(((Sinonimo) it.next()).getPalabra_clave().equals("casa")))
                     {
                         prueba=false;
                     }
@@ -221,7 +223,7 @@ public class diccionarioPR4Test1 {
             }
          catch( final Exception e )
             {
-            fail("Busqueda Exitosa no debe disparar una excepcion.");
+           fail("Busqueda Exitosa no debe disparar una excepcion.");
             }
      }
      

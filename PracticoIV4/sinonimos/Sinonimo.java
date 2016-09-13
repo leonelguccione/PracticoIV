@@ -1,16 +1,16 @@
 package sinonimos;
 
-public class sinonimo {
+public class Sinonimo {
     
     private String Palabra_clave;
     private String Sinonimo_clave;    
     
-    public sinonimo() {
+    public Sinonimo() {
         super();
     }
 
 
-    public sinonimo(String Palabra_clave, String Sinonimo_clave) {
+    public Sinonimo(String Palabra_clave, String Sinonimo_clave) {
         this.Palabra_clave = Palabra_clave;
         this.Sinonimo_clave = Sinonimo_clave;
     }
@@ -38,10 +38,10 @@ public class sinonimo {
         if (this == object) {
             return true;
         }
-        if (!(object instanceof sinonimo)) {
+        if (!(object instanceof Sinonimo)) {
             return false;
         }
-        final sinonimo other = (sinonimo) object;
+        final Sinonimo other = (Sinonimo) object;
         if (!(Palabra_clave == null ? other.Palabra_clave == null : Palabra_clave.equals(other.Palabra_clave))) {
             return false;
         }

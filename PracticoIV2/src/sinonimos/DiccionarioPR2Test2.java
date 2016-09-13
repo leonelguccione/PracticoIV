@@ -24,13 +24,13 @@ import org.junit.runner.JUnitCore;
    
 import java.util.Iterator;
 
-public class diccionarioPR3Test2 {
-    
-        diccionarioTestFixture2 fixture2 = new diccionarioTestFixture2();
-            
-        public diccionarioPR3Test2() {
-        }
+public class DiccionarioPR2Test2 {
 
+        Diccionario dicctest=new Diccionario();
+            
+        public DiccionarioPR2Test2() {
+        }
+    
     /**
      * Inicio Fixture
      */
@@ -38,19 +38,19 @@ public class diccionarioPR3Test2 {
     @Before
     public void setUp()
     {
-        fixture2.setUp();
+        dicctest.getListaSinonimos().clear();
     }
 
     @After
     public void tearDown() 
     {
-        fixture2.tearDown();
+        dicctest.getListaSinonimos().clear();
     }
     
     /**
     * Fin Fixture
     **/
-               
+                       
          /**
           * Lista vacia y sinonimo valido
           */
@@ -59,9 +59,9 @@ public class diccionarioPR3Test2 {
         public void testAgregar_sinonimo4() {
             try
                { 
-                sinonimo sin = new sinonimo("Casa","hogar");
-                fixture2.dicctest.agregar_sinonimo(sin);
-                assertTrue("Error al agregar un Sinonimo",fixture2.dicctest.getListaSinonimos().size()==1);
+                Sinonimo sin = new Sinonimo("Casa","hogar");
+                dicctest.agregar_sinonimo(sin);
+                assertTrue("Error al agregar un Sinonimo",dicctest.getListaSinonimos().size()==1);
                 }
             catch( final Exception e )
                 {
@@ -79,15 +79,15 @@ public class diccionarioPR3Test2 {
         public void testAgregar_sinonimo5() {
             try
                { 
-                sinonimo sin = new sinonimo(null,null);
-                fixture2.dicctest.agregar_sinonimo(sin);
+                Sinonimo sin = new Sinonimo(null,null);
+                dicctest.agregar_sinonimo(sin);
                 fail("agregar sinonimo invalido no dispara excepcion.");
                 }
             catch( final Exception e )
                 {
     /*          Nota : La excepcion debe ser la correspondiente al mensaje */        
                 final String msg = "Sinonimo Invalido";
-                assertEquals("No genera la Excepcion de Sinonimo Invalido", msg, e.getMessage());
+                assertEquals("No genera la Excepcion de Sinonimo Invalido",msg, e.getMessage());
                 }
         }
 
@@ -100,8 +100,8 @@ public class diccionarioPR3Test2 {
          public void testEliminar_sinonimo4() {
              try
                 { 
-                    sinonimo sin = new sinonimo("Casa","hogar");
-                    fixture2.dicctest.eliminar_sinonimo(sin);
+                    Sinonimo sin = new Sinonimo("casa","hogar");
+                    dicctest.eliminar_sinonimo(sin);
                     fail("eliminar sinonimo de lista vacia no dispara excepcion.");
                 }
              catch( final Exception e )
@@ -124,14 +124,14 @@ public class diccionarioPR3Test2 {
             
             try
                 {
-                Iterator it = fixture2.dicctest.busqueda_sinonimo("Casa").iterator();
+                Iterator it = dicctest.busqueda_sinonimo("casa").iterator();
                 fail("Busqueda en lista vacia no dispara excepcion.");
                 }
             catch( final Exception e )
                 {
     /*          Nota : La excepcion debe ser la correspondiente al mensaje */ 
                 final String msg = "Diccionario Vacio";
-                assertEquals("No genera excepcion de Diccionario Vacio", msg, e.getMessage());
+                assertEquals("No genera excepcion de Diccionario Vacio",msg, e.getMessage());
                 }
         }
   
